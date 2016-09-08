@@ -1,0 +1,23 @@
+Laporan Task Week 1
+
+Pertama, topik tugas week01 ialah mengenai dasar-dasar github
+dan dasar-dasar penggunaan putty di server badak.cs.ui.ac.id atau
+dengan nama lain CLI (Command Line Interface).
+
+Hal-hal yang dipelajari mengenai Git antara lain,
+git clone - Clone a repository into a new directory
+git add - Add file contents to the index
+git commit - Record changes to the repository
+git push - Update remote refs along with associated objects
+
+Lalu di tugas kali ini juga mempelajari dasar-dasar CLI
+antara lain : 
+touch - change file timestamps
+operator > redirect the output of command on left to the file on the
+right.
+mv - move (rename) file(s)
+pwd - verify your current directory
+using vi editor and nano editor.
+
+Dan hal yang dipelajari berikutnya ialah scripting dasar,
+mencoba menampilkan current date pada laptop dengan scripting.
