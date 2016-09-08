@@ -1,0 +1,19 @@
+Laporan Task Week 0
+
+Pertama, pembuatan akun google, digunakan 
+untuk pendataan mahasiswa di kelas OS melalui google form.
+
+Kedua, pembuatan akun github, 
+dengan tujuan pada repository bernama os162
+milik saya akan digunakan untuk pengumpulan tugas OS.
+
+Lalu, ketika pembuatan akun google, akun github dan pembuatan repository os162
+telah berhasil maka akan di update daftar namanya dengan status sukses.
+
+Pada tugas ini saya mempelajari sedikit hal mengenai GitHub,
+yang merupakan Online project hosting dengan menggunakan Git,
+dengan fitur VCS (Version Control System) maka akan sangat memudahkan programmer
+mengkolaborasikan kodingannya dalam satu tim.
+
+Namun, pada mata kuliah OS ini digunakan untuk mengumpulkan tugas pribadi,
+sehingga hanya menggunakan fitur dasar github.
