@@ -17,3 +17,4 @@ drwxr-xr-x  2 luthfi.abdurrahim StafCS 4096 Sep  8 22:47 week08
 drwxr-xr-x  2 luthfi.abdurrahim StafCS 4096 Sep  8 22:47 week09
 drwxr-xr-x  2 luthfi.abdurrahim StafCS 4096 Sep  8 22:47 week10
 /home/fasilkom/mahasiswa/l/luthfi.abdurrahim/os162/week01
+Today is 08 Sep 2016 at 23:53:30
