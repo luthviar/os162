@@ -1,0 +1,158 @@
+ULASAN 1
+
+Pada post kali ini saya, Luthfi Abdurrahim dan teman saya Rizqy Faishal Tanjung akan membahas mengenai Android Architecture & Application Fundamentals. Kami menggunakan video yang berjudul Android Architecture & Application Fundamentals yang dibuat oleh techgig.com dengan pemateri yang bernama Vivek Arora, Manager at MySpark Technologies, melalui link video https://www.youtube.com/watch?v=c7nZP6B0oxU yang berdurasi 1 jam 25 menit 26 detik.
+
+
+
+Pada penjelasan video ini, mengenai Android Architecture, yang dimana termasuk antara lain : which Applications, Application Framework, Android Runtime, Native Libraries & Linux Kernel. Namun, pada video ini juga diejlaskan hal-hal lainnya terkait Android, yang mendukung arsitektur Android itu, yaitu 1. Apa, Mengapa dan Bagaimana mengenai Android, 2 Layanan esensial yang diberikan oleh Android Application Framework. 3. Mengapa membutuhkan DVM daripada JVM/KVM. 4. Apa saja komponen-komponen Aplikasi Android?. 5 Kapan kita membutuhkan explicit atau implisit intent?. Namun, kami akan fokus pada ulasan mengenai Android Architecture.
+
+
+
+Android Architecture
+
+Arsitektur Android, terdiri dari tumpukan layer-layer, yang dimana paling bawah menunjukan kernel-nya, yaitu Linux Kernel 2.6, tumpukan di atasnya yaitu libraries, yang merupakan native libraries yang dikembangkan dengan bahasa C dan C++ yang dimana libraries ini nantinya akan menunjukan kapabilitasnya melalui application framework yang diperkenalkan oleh aplikasi-aplikasi Android. Pada lapisan layer Application Framework, akan membuat berbagai komponen pada libraries menjadi reusable, sehingga bisa digunakan kapanpun dan dengan tujuan apapun. Android runtime, merupakan salah satu komponen critical yang dimiliki oleh Android, dan terdapat di dalamnya yaitu Dalvik VIrtual Machine, karena Dalvik Virtual Machine ini terdiri dari sebuah core library yang menyediakan substantial subset dari Java 5 standard edition yang dimana terdapat IO Collections. Dan, layer paling atas yaitu adalah applications, yaitu aplikasi-aplikasi pada Android yang dimana yang biasa digunakan oleh para pengguna Android Devices, seperti browser, phone, message, dan-lain-lain.
+
+
+
+
+Android Architecture - Linux Kernel
+
+Kernel Linux adalah kernel yang digunakan dalam sistem operasi GNU/Linux. Kernel ini merupakan turunan dari keluarga sistem operasi UNIX, dirilis dengan menggunakan lisensi GNU General Public License (GPL), dan dikembangkan oleh pemrogram di seluruh dunia. Linux yang digunakan adalah linux 2.6 kernel dan ini merupakan inti dari segalanya. beberapa contohnya, hal keamanan, manajemen memori, manajemen proses, manajemen tumpukan jaringan dan driver model, kernel ini pula mendapatkan beberapa hal penyesuaian dan pengembangan yang dimana disesuaikan dengan Android, low memory killer yang dimana berarti mengembangkan aplikasi tidak dibutuhkan untuk keseluruhan aplikasi di-handle, lalu kernel ini juga meningkatkan manajemen power/energi.
+
+
+Android Architecture - Native Libraries
+
+Hal berikutnya yang diperhatikan di atas dari linux kernel ialah native libraries, yang dimana di android architecture ini menggunakan C dan C++ libraries dengan mengekspos berbagai macam kabapilitas dalam Android Application Framework. Native Libraries ini memiliki SGL dan OpenGL yang dimana mendukung grafis 2D dan 3D. OpenGL mendukung grafis CD yang berbasis pada OpenGL 1.0, jadi libraries ini bisa menggunakan hardware 3D accelerator jika tersedia atau bisa menggunakan perangkat lunak (software) yang teroptimasi tingkat tinggi. Lalu, di sini pula memiliki Freetype yang digunakan untuk bitmap dan vector font rendering. SQLite yang dimana merupakan Relational Database engine yang sangat ringan merupakan komponen penting dalam memanajemen akses untuk menampilkan sub-sistem sehingga suatu hal penting dari kesukses memanajemen ialah dengan memuluskan secara komposit dari grafis 2D dan 3D.
+
+Lalu, ada LibWebCore yang dimana merupakan modern web browser engine yang memberikan kita tampilan web tertanam dan dapat digunakan. Di sini kita memiliki media libraries yang dimana berbasis pada PackerVideos OpenCORE. Jadi, libraries ini mendukung pemutaran sebaik pada perekaman dari berbagai audio dan video format yang terkenal, seperti MPEG4, H264, MP3, etc. Lalu, kita memiliki SSL yang dimana kepanjangan dari Secure Sockets Layer cryptographic protocol untuk keamanan komunikasi internet, native libraries ini mungkin tidak berinteraksi secara langsung dengan pengguna namun dengan memahaminya lebih baik bisa menciptakan aplikasi yang lebih baik.
+
+
+Android Architecture - Android Runtime
+
+Android runtime disini terdiri atas Dalvik Virtual Machine yang menjalankan pengoptimasian file format (.dex) yang tidak berjalan pada Java bytecode dan juga pada semua application development di atas layer yang telah diselesaikan di Java.
+
+Namun, merupakan suatu hal normal saat kita bekerja pada java application dan mendapatkan java.class files yang dimana telah dikompilasi ke Java dot class menggunakan java compiler, lalu akan berubah menjadi penyesuaian dengan android dengan output .dex yang merupakan Dalvik Executable Format.
+
+Sehingga, hal ini membuat dukungan pada berbagai macam virtual machine process untuk setiap device dalam mencapai hal ini, kita harus mempunyai berbagai macamvirtual machine process untuk memori device yang constant.
+
+Lalu, Dex format teroptimasi dengan android, yang dimana jika kita memiliki seupuluh aplikasi berbeda, maka kita mendapatkan sepuluh proses yang berbeda secara umum/general dan setiap aplikasi berjalan pada proses nya masing-masing, sehingga kesemuanya ini berjalan pada linux kernel yang sama dan membutuhkan low level memory management untuk keseluruhan hal tersebut dan bergantung kepada linux kernel. Lalu, kita juga memiliki inti APIs yang berbasis pada standar edisi Java 5 untuk kebutuhan application framework, yang akan berdampak pada variasi data structures, file access, network access serta pendukungan seluruh hal mengenai grafis.
+
+
+Android Architecture - Application Framework
+
+Sekarang merupakan layer application framework yang dimana hampir keseluruhan komponen berinteraksi secara langsung dengan aplikasi. Pada application framework, kita memiliki beberapa komponen yang salah satunya merupakan komponen terpenting dari application framework, yaitu activity manager. Komponen ini akan memanajemen life cycle dari aplikasi-aplikasi yang ada dan memberikan kita tumpukan aplikasi pada umumnya untuk bernavigasi.
+
+Lalu, ada package manager, yang dimana menghandle informasi mengenai variasi muatan aplikasi yang ada di dalam sistem, yang dimana pada waktu tertentu dibutuhkan informasi mengenai aplikasi dan aplikasi lainnya, maka itulah pekerjaan dari package manager.
+
+Lalu, ada resource manager, yang dimana memberikan kita akses untuk lokalisasi string atau hal variasi lainnya, kita dapat memiliki bentuk dari PNG, BMP seperti XML, sehingga resource manager ini membantu kita mengakses untuk non-code resources.
+
+Setiap aplikasi berjalan pada masing-masing class -nya sehingga tidak ada satu aplikasi yang tidak memiliki akses ke area proses dari aplikasi liannya, namun jika mereka menginginkan pertukaran data dari antar aplikasi, maka mereka dapat melakukannya melalui content providers.
+
+Lalu, ada Notification manager, yang dimana membantu kita menampilkan custom alerts pada status bar. Notification manager secara umum penting dalam kasus dari broadcast receivers. 
+
+Lalu, ada location manager yang akan menghandle informasi mengenai lokasi, dan ada pula telephony manager yang menghandle informasi mengenai telephony.
+
+Yang dimana jika kita menggunakan GSM Telephony atau beberapa jenis lainnya dari telephony, maka ada beberapa ketergantungan terhadap hardware, jadi inilah inti pelayanan yang dimana disediakan oleh application framework yang terpisah dari ini ialah ada beberapa pelayanan yang harus membutuhkan dukungan hardware seperti bluetooth service, wi-fi service, usb service atau beberapa sensor lainnya, sehingga membutuhkan ketergantungan hardware.
+
+ 
+
+==============
+
+Github Account : luthviar
+
+Link Youtube ulasan 1 :  https://www.youtube.com/watch?v=c7nZP6B0oxU
+
+Link Youtube ulasan 2 : https://www.youtube.com/watch/?v=4b3PNCSENvM
+
+Link ulasan 1 : http://luthviar.blogspot.co.id/2016/11/ulasan-1-android-architecture.html
+
+Link ulasan 2 : aws-os.blogspot.co.id/2016/12/pada-ulasan-kedua-kali-ini-saya-akan.html 
+
+ 
+ ==================
+ 
+ ULASAN 2 : 
+ 
+  Pada post kali ini saya, Luthfi Abdurrahim dan teman saya Rizqy Faishal Tanjung akan membahas mengenai Amazon Web Service. Kami menggunakan video yang berjudul AWS Service Overview yang kami peroleh dari chanel webbinar, melalui link video https://www.youtube.com/watch?v=4b3PNCSENvM yang berdurasi 1 jam 3 menit 23 detik.
+
+Pada ulasan kedua kali ini, saya akan membahas tentang produk salah satu perusahaan yang berkecipung di bidang cloud computing yaitu Amazon.com. Saya memilih topic ini karena dilandasi oleh keingintahuan saya tentang infrastructure yang dipakai dalam large-scale web application. Dari beberapa service provider untuk web services saya akan mereview salah satunya yang terkenal yaitu Amazon Web Service. Amazon Web Service atau biasanya orang menyebutnya AWS, merupakan sebuah practical cloud computing dari Amazon.com yang didirikan pada tahun 2006 yang berguna untuk memberikan layanan web services atau client-side applications dengan value "Succeeding at Twenty-First Century Business Infrastructure". Untuk menggali informasi mengenai services-services yang tersedia dalam AWS, berikut video yang saya tontong dari youtube:
+
+
+Saat pertama kalinya AWS di launching pada tahun 2006, memang service yang disediakannya masih terbatas. Seiring bergantinya tahun hingga tahun 2016 ini, AWS terus meningkatkan perkembangan yang signifikan dengan salah satu indikatornya penambahan service-service yang menjadi solusi dari problem web service dewasa ini. Perbedaan jumlah service yang signifikan dari tahun ke tahun menandakan bahwa semakin banyaknya permintaan dan perkembangan produk dari AWS.
+
+
+
+
+Pada tahun 2016 ini telah banyak fitur dan service yang dikembangkan yang mencapai 2420 fitur yang disediakan AWS. Pada blog ini akan dijelaskan service-service pada tiap problem domain  yang meliputi:
+
+    Compute, yang berhubungan dengan proses komputasi dalam web application.
+    Storage & content delivery, yang berhubungan dengan proses penyimpanan file dalam AWS.
+    Database, berhubungan dengan database dan bussines logic dalam web application
+    Networking, berhubungan dengan jaringan dan proses transfer pada web application
+    Application Service, berhubungan dengan berbagai fitur yang dapat dikembangakan oleh developer pada web application.
+    Administration dan Security, berhubungan dengan proses monitoring dan security dari system.
+
+Pada problem domain Compute, terdapat beberapa services yang disediakan untuk processing web application secara maksimal. Service-service tersebut antara lain Elastic Compute Cloud (EC2) yang memungkinakan untuk membuat virtual server dalam cloud serta dengan fiture scalability yang bagus, EC2 Container Service yang berguna untuk container management service dari setiap instance virtual server EC2 yang kita buat jadi akan sangat mudah untuk memanagement proses dari virtual server kita, Elastic Beanstalk yang berguna untuk memanagement dan mengeksekusi web apps kita serta support untuk beberapa bahasa pemograman seperti Node.js, .NET, JAVA, PHP, dan lain-lain.
+
+Ketika kita membuat sebuah web application pasti akan ada proses transfer dari client ke server berupa data-data media yang ukurannya relatif besar jika dibandingkan dengan data-data yang akan disimpan dalam database. Oleh karena itu dibutuhkan file system yang bagus untuk mengelola dan memanagement file-file yang masuk ke dalam server kita. AWS memberikan solusi untuk hal tersebut pada beberapa service yang disediakannya antara lain: Amazon S3 (Simple Storage Service) merupakan simple file system yang diguanakan untuk menyimpan data-data dari web yang memungkinkan scalability, high secure, dan reliable. Setelah itu terdapat lagi service yang berguna untuk menyimpan data-data yang bersifat arsip melalu service yang disediakan AWS yaitu Glacier. Untuk membuat instance disk yang berguna untuk memudahkan block allocation untuk data, AWS menyediakan service Elastic Block Store. Masih banyak lagi service yang disediakan untuk memanagement data-data file seprti import/export, storage gateway, dan cloudfront.
+
+Untuk permasalahan dengan database dan bussines logic, AWS mempermudah kita dengan beberapa service yang disediakan untuk memakai database yang bersifat relational maupun non-relational. Untuk database yang bersifat relational dalam AWS sudah desediakan service seperti RDS (Relational Database Service) dan Aurora (Relational Database Engine). Untuk menyimpan database yang bersifat non-realtional AWS sudah menyediakan service seperti DynamoDB dan ElasticCache. Datawarehouse service juga bisa kita gunakan melalui Redshift.
+
+Kita juga bisa mengatur bebarapa pengaturan jaringan kita seperti protocol HTTP atau HTTPS melalui service-service yang telah disediakan khusus untuk problem networking. Untuk para devleoper sendiri yang membangun application logic bisa menggunakan beberapa Application Service dari AWS seperti :
+
+    Simple Email Service, berguna untuk dikembangan dalam aplikasi yang berhubungan dengan email service.
+    CloudSearch, jika aplikasi kita membutuhkan fitur search maka kita bisa gunakan service ini.
+    Simple Notification Service, digunakan untuk dikembangkan sebagai push notification service saat kita membuat aplikasi denga fitur real time notification.
+    Elastic Transcoder, berguna untuk memanagement file-file media dan mengconvertnya dalam berbagai format yang dibutuhkan.
+    Simple Queue Service, service ini berguna jika kita mengintegrasikan fitur SMS service ke dalam aplikasi kita.
+
+Beberapa service lainnya sudah disediakan oleh AWS seperti service yang memudahkan developer untuk membangun workflow nya, service administration dan security untuk proses monitoring dan managemen security aplikasi kita, service analytics yang berguna untuk proses analytic dan pengambilan keputusan dari data-data yang sudah tersimpan dalam database ataupun storage lainnya.
+
+GITHUB Account : https://github.com/rizqyfaishal
+URL ulasan : http://aws-os.blogspot.co.id/2016/12/pada-ulasan-kedua-kali-ini-saya-akan.html
+URL konten YouTube : https://www.youtube.com/watch?v=4b3PNCSENvM
+Durasi : 63 menit 23 detik
+Tanggal submisi revisi pertama : 10 Desember 2016
+Tanggal submisi revisi terakhir : 10 Desember 2016
+
+=======================
+
+RANKING
+
+ Ranking Ulasan OS
+01. [U2-20] http://aws-os.blogspot.co.id/2016/12/pada-ulasan-kedua-kali-ini-saya-akan.html
+02. [U2-18] http://dwitri-rizkydarmawan.blogspot.co.id/2016/12/ulasan-2.html
+03. [U1-04] https://psudeosudo.blogspot.co.id/2016/11/linux-sucks.html
+04. [U2-12] http://keynekassapa13.blogspot.co.id/2016/12/review2-io-system-and-device-drivers.html
+05. [U1-42] http://andhitanurulainun.blogspot.co.id/2016/12/ulasan-1.html
+06. [U1-40] http://os162fasilkom.blogspot.co.id/2016/12/ulasan1.html
+07. [U2-02] http://vincent51-ulasan1.blogspot.co.id/2016/12/ulasan-2-servers.html
+08. [U1-06] http://putrirmd.blogspot.co.id/2016/12/cloud-computing.html
+09. [U1-34] http://ahmadhilman-os162.blogspot.co.id/2016/12/hybrid-cloud-infrastructure-introduction.html
+10. [U2-08] http://zetlogger.blogspot.co.id/2016/12/apache-hadoop-modern-data-os.html
+11. [U1-12] http://fascalgh.blogspot.co.id/2016/12/ulasan-1.html
+12. [U2-23] http://louissihombing.blogspot.co.id/2016/12/threat-models.html
+13. [U2-24] http://khumaisa-os162.blogspot.co.id/p/ulasan2.html
+14. [U2-25] http://ahmadhilman-os162.blogspot.co.id/2016/12/introduction-to-practical-hacking-and.html
+15. [U2-26] http://rizkyaly.blogspot.co.id/2016/12/ulasan-2.html
+16. [U2-11] http://muhammadiqbalnazulis.blogspot.co.id/2016/12/ulasan-2-pada-kesempatan-ini.html
+18. [U2-13] http://joshiarheinier.blogspot.co.id/2016/12/ulasan-2.html
+19. [U2-14] http://alvinrezalugiana.blogspot.co.id/2016/12/ulasan-2-operating-system-networking.html
+20. [U1-24] http://khumaisa-os162.blogspot.co.id/p/ulasan1.html
+21. [U1-23] http://ahmdnbeel.blogspot.co.id/2016/12/simple-schedulers.html
+22. [U1-25] http://tajghinaqf.blogspot.co.id/2016/12/ulasan-1.html
+23. [U1-33] https://mathisgold.blogspot.co.id/2016/12/thread-fundamentals-advanced-net.html
+24. [U2-07] http://pamelakareen.blogspot.co.id/2016/12/ulasan-2-principles-of-operating.html
+25. [U1-39] http://arrikur.blogspot.co.id/2016/12/os162-ulasan1-protection-security.html
+26. [U2-39] http://rahmanfathin.blogspot.co.id/2016/12/ulasan2.html
+27. [U2-22] http://www.kompidolar.com/2016/12/fork-dan-exec.html
+28. [U2-36] http://tugas-os162.blogspot.co.id/2016/12/ulasan-2.html
+29. [U2-37] http://tugasos162.blogspot.co.id/2016/12/the-code-story-of-linux-documentary.html
+30. [U2-38] http://ulasan2putrireitasya.blogspot.co.id/2016/12/principle-of-operating-system.html
+
+==============
+Github Account : luthviar
+Link Youtube ulasan 1 :  https://www.youtube.com/watch?v=c7nZP6B0oxU
+Link Youtube ulasan 2 : https://www.youtube.com/watch/?v=4b3PNCSENvM
+Link ulasan 1 : http://luthviar.blogspot.co.id/2016/11/ulasan-1-android-architecture.html
+Link ulasan 2 : aws-os.blogspot.co.id/2016/12/pada-ulasan-kedua-kali-ini-saya-akan.html 
